@@ -13,11 +13,73 @@
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- urn:absolute:www.example.com#estudia -->
+
+    <owl:ObjectProperty rdf:about="urn:absolute:www.example.com#estudia">
+        <owl:inverseOf rdf:resource="urn:absolute:www.example.com#estudiado_por"/>
+        <rdfs:domain rdf:resource="urn:absolute:www.example.com#Estudiante"/>
+        <rdfs:range rdf:resource="urn:absolute:www.example.com#Curso"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- urn:absolute:www.example.com#estudiado_por -->
+
+    <owl:ObjectProperty rdf:about="urn:absolute:www.example.com#estudiado_por"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- urn:absolute:www.example.com#edad_estudiante -->
+
+    <owl:DatatypeProperty rdf:about="urn:absolute:www.example.com#edad_estudiante">
+        <rdfs:domain rdf:resource="urn:absolute:www.example.com#Estudiante"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- urn:absolute:www.example.com#nombre_estudiante -->
+
+    <owl:DatatypeProperty rdf:about="urn:absolute:www.example.com#nombre_estudiante">
+        <rdfs:domain rdf:resource="urn:absolute:www.example.com#Estudiante"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
     // Classes
     //
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- urn:absolute:www.example.com#Curso -->
+
+    <owl:Class rdf:about="urn:absolute:www.example.com#Curso"/>
     
 
 
