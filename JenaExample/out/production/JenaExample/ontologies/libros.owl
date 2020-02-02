@@ -1,0 +1,171 @@
+@prefix : <http://www.books.com/ontology/v1#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.books.com/ontology/v1#> .
+
+<http://www.books.com/ontology/v1#> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.books.com/ontology/v1#autor_de
+:autor_de rdf:type owl:ObjectProperty ;
+          owl:inverseOf :escrito_por ;
+          rdfs:domain :Autor ;
+          rdfs:range :Libro .
+
+
+###  http://www.books.com/ontology/v1#editado_por
+:editado_por rdf:type owl:ObjectProperty ;
+             owl:inverseOf :editor_de .
+
+
+###  http://www.books.com/ontology/v1#editor_de
+:editor_de rdf:type owl:ObjectProperty ;
+           rdfs:domain :Editorial ;
+           rdfs:range :Libro .
+
+
+###  http://www.books.com/ontology/v1#escrito_por
+:escrito_por rdf:type owl:ObjectProperty .
+
+
+###  http://www.books.com/ontology/v1#vendedor_de
+:vendedor_de rdf:type owl:ObjectProperty ;
+             owl:inverseOf :vendido_en .
+
+
+###  http://www.books.com/ontology/v1#vendido_en
+:vendido_en rdf:type owl:ObjectProperty ;
+            rdfs:domain :Libro ;
+            rdfs:range :Tienda .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.books.com/ontology/v1#nombre_autor
+:nombre_autor rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Autor ;
+              rdfs:range xsd:string .
+
+
+###  http://www.books.com/ontology/v1#nombre_editorial
+:nombre_editorial rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :Editorial ;
+                  rdfs:range xsd:string .
+
+
+###  http://www.books.com/ontology/v1#nombre_tienda
+:nombre_tienda rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Tienda ;
+               rdfs:range xsd:string .
+
+
+###  http://www.books.com/ontology/v1#numero_ejemplares
+:numero_ejemplares rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :Libro ;
+                   rdfs:range xsd:integer .
+
+
+###  http://www.books.com/ontology/v1#titulo
+:titulo rdf:type owl:DatatypeProperty ;
+        rdfs:domain :Libro ;
+        rdfs:range xsd:string .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.books.com/ontology/v1#Autor
+:Autor rdf:type owl:Class .
+
+
+###  http://www.books.com/ontology/v1#Editorial
+:Editorial rdf:type owl:Class .
+
+
+###  http://www.books.com/ontology/v1#Enciclopedia
+:Enciclopedia rdf:type owl:Class ;
+              rdfs:subClassOf :Libro .
+
+
+###  http://www.books.com/ontology/v1#Libro
+:Libro rdf:type owl:Class .
+
+
+###  http://www.books.com/ontology/v1#Texto_literario
+:Texto_literario rdf:type owl:Class ;
+                 rdfs:subClassOf :Libro .
+
+
+###  http://www.books.com/ontology/v1#Tienda
+:Tienda rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.books.com/ontology/v1#Angel_Ruiz
+:Angel_Ruiz rdf:type owl:NamedIndividual ;
+            :autor_de :Enciclopedia_Viajeros ;
+            :nombre_autor "Angel Ruiz"^^xsd:string .
+
+
+###  http://www.books.com/ontology/v1#Crepusculario
+:Crepusculario rdf:type owl:NamedIndividual ;
+               :editado_por :Oceano ;
+               :escrito_por :Pablo_Neruda ;
+               :vendido_en :Libreria_Nacional ;
+               :numero_ejemplares 10 ;
+               :titulo "Crepusculario"^^xsd:string .
+
+
+###  http://www.books.com/ontology/v1#El_Colombiano
+:El_Colombiano rdf:type owl:NamedIndividual ;
+               :nombre_editorial "El Colombiano"^^xsd:string .
+
+
+###  http://www.books.com/ontology/v1#Enciclopedia_Viajeros
+:Enciclopedia_Viajeros rdf:type owl:NamedIndividual ,
+                                :Enciclopedia ;
+                       :editado_por :El_Colombiano ;
+                       :escrito_por :Angel_Ruiz ;
+                       :vendido_en :Libreria_Nacional ;
+                       :numero_ejemplares 8 ;
+                       :titulo "Enciclopedia Viajeros"^^xsd:string .
+
+
+###  http://www.books.com/ontology/v1#Libreria_Nacional
+:Libreria_Nacional rdf:type owl:NamedIndividual ;
+                   :nombre_tienda "Libreria Nacional"^^xsd:string .
+
+
+###  http://www.books.com/ontology/v1#Oceano
+:Oceano rdf:type owl:NamedIndividual ;
+        :nombre_editorial "Oceano"^^xsd:string .
+
+
+###  http://www.books.com/ontology/v1#Pablo_Neruda
+:Pablo_Neruda rdf:type owl:NamedIndividual ;
+              :nombre_autor "Pablo Neruda"^^xsd:string .
+
+
+###  http://www.books.com/ontology/v1#20_Poemas_de_amor
+<http://www.books.com/ontology/v1#20_Poemas_de_amor> rdf:type owl:NamedIndividual ,
+                                                              :Texto_literario ;
+                                                     :editado_por :Oceano ;
+                                                     :escrito_por :Pablo_Neruda ;
+                                                     :vendido_en :Libreria_Nacional ;
+                                                     :numero_ejemplares 20 ;
+                                                     :titulo "20 Poemas de amor y una canción desesperada"^^xsd:string .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
