@@ -1,0 +1,37 @@
+<rdf:RDF 
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:lib="http://www.ontology.org/universidad#">
+
+	<rdf:Description rdf:about="http://www.ontology.org/library#Hernan">
+		<lib:Amigos>
+			<rdf:Bag>
+				<rdf:li>Danilo</rdf:li>
+				<rdf:li>Sebastian</rdf:li>
+			</rdf:Bag>
+		</lib:Amigos>
+		<lib:Novia>Veronica</lib:Novia>
+		<lib:Disponibilidad>
+			<rdf:Alt>
+				<rdf:li>
+					<rdf:Bag>
+						<rdf:li>2:00pm</rdf:li>
+						<rdf:li>3:00pm</rdf:li>
+						<rdf:li>4:00pm</rdf:li>
+					</rdf:Bag>
+				</rdf:li>
+				<rdf:li>Martes</rdf:li>
+				<rdf:li>Miercoles</rdf:li>
+				<rdf:li>Jueves</rdf:li>
+				<rdf:li>Viernes</rdf:li>
+				<rdf:li>Sabado</rdf:li>
+				<rdf:li>Domingo</rdf:li>
+			</rdf:Alt>
+		</lib:Disponibilidad>
+		<lib:MateriasPreferidas>
+			<rdf:Seq>
+				<rdf:li>Algoritmos</rdf:li>
+				<rdf:li>TAE</rdf:li>
+			</rdf:Seq>
+		</lib:MateriasPreferidas>
+	</rdf:Description>
+</rdf:RDF>
